@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Full-Stack Portfolio Application for Tharun Kumar Doddi",
   "scripts": {
-    "postinstall": "npm --prefix frontend install",
+    "postinstall": "npm --prefix frontend install --include=dev",
     "env:config": "node scripts/set-env.js",
     "prestart": "npm run env:config",
     "predev": "npm run env:config",
@@ -13,7 +13,7 @@
     "start": "npm run serve",
     "serve": "npm run build && node backend/server.js",
     "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend start\"",
-    "build": "npm --prefix frontend install && npm run env:config && npm --prefix frontend run build",
+    "build": "npm --prefix frontend install --include=dev && npm run env:config && npm --prefix frontend run build",
     "logs": "powershell -Command \"Get-Content -Path 'backend/logs/combined.log' -Tail 30\"",
     "logs:live": "powershell -Command \"Get-Content -Path 'backend/logs/combined.log' -Tail 30 -Wait\"",
     "logs:errors": "powershell -Command \"Get-Content -Path 'backend/logs/error.log' -Tail 30\"",
