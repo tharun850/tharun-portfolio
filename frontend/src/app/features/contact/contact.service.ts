@@ -8,7 +8,6 @@ export interface ContactPayload {
   email: string;
   message: string;
   turnstileToken: string;
-  // honeypot field: real users never fill this in; bots often do
   company?: string;
 }
 
@@ -16,12 +15,17 @@ export interface ContactPayload {
 export class ContactService {
   private http = inject(HttpClient);
 
-  // Uses environment.apiUrl (defaults to local in dev, or your deployed Render backend in prod)
-  private readonly API_URL = environment.apiUrl;
+  private get apiUrl(): string {
+    // If deployed on Vercel or any live domain, always use same-origin relative endpoint /api/contact
+    if (typeof window !== 'undefined' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+      return '/api/contact';
+    }
+    return environment.apiUrl || '/api/contact';
+  }
 
   async submit(payload: ContactPayload): Promise<{ ok: boolean; message: string }> {
     return firstValueFrom(
-      this.http.post<{ ok: boolean; message: string }>(this.API_URL, payload)
+      this.http.post<{ ok: boolean; message: string }>(this.apiUrl, payload)
     );
   }
 }
