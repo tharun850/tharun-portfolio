@@ -1,0 +1,22 @@
+<div
+  #box
+  class="bubble-box glass"
+  [style.--bubble-scale]="scale()"
+  (pointermove)="onPointerMove($event)"
+  (pointerup)="onPointerUp()"
+  (pointercancel)="onPointerUp()"
+>
+  @for (b of bubbles(); track b.id) {
+    <div
+      class="bubble"
+      [class.dragging]="b.dragging"
+      [style.width.px]="b.radius * 2"
+      [style.height.px]="b.radius * 2"
+      [style.transform]="'translate3d(' + (b.x - b.radius) + 'px,' + (b.y - b.radius) + 'px,0)'"
+      [style.--bubble-color]="b.color"
+      (pointerdown)="onPointerDown($event, b.id)"
+    >
+      <span>{{ b.label }}</span>
+    </div>
+  }
+</div>

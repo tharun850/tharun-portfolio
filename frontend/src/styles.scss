@@ -1,0 +1,129 @@
+/* ---------------------------------------------------------
+   Global design tokens. Dark theme is the default; the
+   [data-theme="light"] block overrides tokens for light mode.
+--------------------------------------------------------- */
+:root,
+[data-theme='dark'] {
+  --bg: #0b0d14;
+  --bg-elevated: #12141d;
+  --text: #f4f5f7;
+  --text-muted: #9aa0ac;
+  --accent: #6c5ce7;
+  --accent-2: #00d1b2;
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur: 16px;
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme='light'] {
+  --bg: #f6f7fb;
+  --bg-elevated: #ffffff;
+  --text: #14161f;
+  --text-muted: #5a6070;
+  --accent: #6c5ce7;
+  --accent-2: #00a389;
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-border: rgba(20, 22, 31, 0.08);
+  --glass-blur: 16px;
+  --shadow: 0 10px 30px rgba(20, 22, 31, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  scroll-behavior: smooth;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+a {
+  color: inherit;
+}
+
+/* Reusable glassmorphism surface */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(140%);
+  box-shadow: var(--shadow);
+}
+
+html {
+  scroll-padding-top: 80px;
+}
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 24px;
+  scroll-margin-top: 80px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  margin-bottom: 48px;
+}
+
+/* Accessible focus states everywhere, including inside glass surfaces */
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+/* Cursor-following 3D tilt (paired with TiltHoverDirective / appTiltHover).
+   Intentionally the only tilt effect in the app, used only on the Resume card. */
+.tilt-hover {
+  transform-style: preserve-3d;
+  transition: transform 0.15s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+/* Scroll pop-in/pop-out (paired with the RevealDirective / appReveal) */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(0.97);
+  transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.reveal-scale {
+  transform: translateY(0) scale(0.85);
+}
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 64px 16px;
+  }
+}

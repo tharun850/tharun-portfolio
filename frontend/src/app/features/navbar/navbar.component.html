@@ -1,0 +1,61 @@
+<header class="navbar glass" [class.scrolled]="scroll.scrollY() > 40">
+  <a href="#home" class="brand" (click)="scrollToSection('#home', $event)">Tharun<span>.</span></a>
+
+  <nav class="links">
+    @for (link of links; track link.href) {
+      <a
+        [href]="link.href"
+        [class.active]="activeSection() === link.id"
+        (click)="scrollToSection(link.href, $event)"
+      >
+        {{ link.label }}
+      </a>
+    }
+  </nav>
+
+  <div class="navbar-actions">
+    <button
+      type="button"
+      class="theme-toggle"
+      (click)="toggleTheme()"
+      [attr.aria-pressed]="theme.isDark()"
+      aria-label="Toggle dark mode"
+    >
+      @if (theme.isDark()) {
+        <span>🌙</span>
+      } @else {
+        <span>☀️</span>
+      }
+    </button>
+
+    <button
+      type="button"
+      class="menu-toggle"
+      [class.open]="menuOpen()"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="mobile-nav"
+      aria-label="Toggle navigation menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+@if (menuOpen()) {
+  <div class="mobile-nav-backdrop" (click)="closeMenu()">
+    <nav id="mobile-nav" class="mobile-nav glass" (click)="$event.stopPropagation()">
+      @for (link of links; track link.href) {
+        <a
+          [href]="link.href"
+          [class.active]="activeSection() === link.id"
+          (click)="scrollToSection(link.href, $event)"
+        >
+          {{ link.label }}
+        </a>
+      }
+    </nav>
+  </div>
+}

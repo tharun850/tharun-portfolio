@@ -1,0 +1,28 @@
+{
+  "name": "portfolio-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Full-Stack Portfolio Application for Tharun Kumar Doddi",
+  "scripts": {
+    "env:config": "node scripts/set-env.js",
+    "prestart": "npm run env:config",
+    "predev": "npm run env:config",
+    "prebuild": "npm run env:config",
+    "start": "npm run serve",
+    "serve": "npm run build && node backend/server.js",
+    "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend start\"",
+    "build": "npm run env:config && npm --prefix frontend run build",
+    "logs": "powershell -Command \"Get-Content -Path 'backend/logs/combined.log' -Tail 30\"",
+    "logs:live": "powershell -Command \"Get-Content -Path 'backend/logs/combined.log' -Tail 30 -Wait\"",
+    "logs:errors": "powershell -Command \"Get-Content -Path 'backend/logs/error.log' -Tail 30\"",
+    "logs:clear": "powershell -Command \"Clear-Content -Path 'backend/logs/*.log' -ErrorAction SilentlyContinue\""
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "resend": "^4.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

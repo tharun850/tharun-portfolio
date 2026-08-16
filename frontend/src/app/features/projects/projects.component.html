@@ -1,0 +1,103 @@
+<section id="projects" class="section">
+  <h2 class="section-title" appReveal [appParallax]="0.04" [maxOffset]="16">Projects &amp; Systems Shipped</h2>
+  <p class="section-subtitle" appReveal [revealDelay]="60">
+    From mission-critical Citi Bank financial engines and live ComPsych healthcare platforms to personal open-source libraries.
+  </p>
+
+  <!-- Filter Tabs -->
+  <div class="filter-tabs" appReveal [revealDelay]="100">
+    <button
+      type="button"
+      class="tab-btn"
+      [class.active]="activeTab() === 'all'"
+      (click)="setTab('all')"
+    >
+      All Projects ({{ allProjects().length }})
+    </button>
+    <button
+      type="button"
+      class="tab-btn"
+      [class.active]="activeTab() === 'enterprise'"
+      (click)="setTab('enterprise')"
+    >
+      🏛️ Enterprise &amp; Client Systems (3)
+    </button>
+    <button
+      type="button"
+      class="tab-btn"
+      [class.active]="activeTab() === 'personal'"
+      (click)="setTab('personal')"
+    >
+      💻 Personal &amp; Open Source (3)
+    </button>
+  </div>
+
+  <div class="grid">
+    @for (p of filteredProjects(); track p.id; let i = $index) {
+      <article
+        class="card glass"
+        [class.featured-enterprise]="p.id === 'citi-oasis'"
+        appReveal
+        [revealDelay]="i * 70"
+        [appParallax]="0.04"
+        [maxOffset]="20"
+      >
+        <div class="card-top">
+          @if (p.badge) {
+            <span
+              class="badge-pill"
+              [class.badge-citi]="p.id === 'citi-oasis'"
+              [class.badge-live]="p.badge.includes('Live')"
+            >
+              {{ p.badge }}
+            </span>
+          }
+          @if (p.clientOrContext) {
+            <span class="context-label">{{ p.clientOrContext }}</span>
+          }
+        </div>
+
+        <h3 class="project-title">{{ p.title }}</h3>
+        <p class="project-desc">{{ p.description }}</p>
+
+        @if (p.highlights && p.highlights.length) {
+          <div class="highlights-block">
+            <h4>Key Architectural Modules &amp; Deliverables:</h4>
+            <ul>
+              @for (h of p.highlights; track h) {
+                <li>{{ h }}</li>
+              }
+            </ul>
+          </div>
+        }
+
+        <div class="tags">
+          @for (tag of p.tags; track tag) {
+            <span class="tag">{{ tag }}</span>
+          }
+        </div>
+
+        @if (p.liveUrl || p.repoUrl) {
+          <div class="links">
+            @if (p.liveUrl) {
+              <a [href]="p.liveUrl" target="_blank" rel="noopener" class="link-btn primary-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3" />
+                </svg>
+                <span>Live Project</span>
+              </a>
+            }
+            @if (p.repoUrl) {
+              <a [href]="p.repoUrl" target="_blank" rel="noopener" class="link-btn code-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M16 18l6-6-6-6M8 6l-6 6 6 6" />
+                </svg>
+                <span>GitHub Code</span>
+              </a>
+            }
+          </div>
+        }
+      </article>
+    }
+  </div>
+</section>

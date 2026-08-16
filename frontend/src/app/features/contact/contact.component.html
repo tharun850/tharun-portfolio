@@ -1,0 +1,98 @@
+<section id="contact" class="section">
+  <h2 class="section-title" appReveal>Get in Touch</h2>
+  <p class="section-subtitle" appReveal [revealDelay]="60">
+    Have a project, opportunity, or question? Send me a message or connect through any of the channels below.
+  </p>
+
+  <div class="contact-grid">
+    <form class="glass form" appReveal [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <label>
+        <span>Your Name</span>
+        <input type="text" formControlName="name" placeholder="John Doe" autocomplete="name" />
+        @if (form.controls.name.invalid && form.controls.name.touched) {
+          <small class="err">Please enter your name.</small>
+        }
+      </label>
+
+      <label>
+        <span>Your Email</span>
+        <input type="email" formControlName="email" placeholder="john@example.com" autocomplete="email" />
+        @if (form.controls.email.invalid && form.controls.email.touched) {
+          <small class="err">Please enter a valid email address.</small>
+        }
+      </label>
+
+      <label>
+        <span>Message</span>
+        <textarea rows="5" formControlName="message" placeholder="Hi Tharun, I'd like to discuss..."></textarea>
+        @if (form.controls.message.invalid && form.controls.message.touched) {
+          <small class="err">Message should be at least 10 characters.</small>
+        }
+      </label>
+
+      <!-- Honeypot field: visually hidden, real users never fill it in.
+           If it's populated on submit, the backend silently drops it. -->
+      <label class="honeypot" aria-hidden="true">
+        <span>Company</span>
+        <input type="text" formControlName="company" tabindex="-1" autocomplete="off" />
+      </label>
+
+      <app-turnstile
+        [siteKey]="turnstileSiteKey"
+        [theme]="theme.isDark() ? 'dark' : 'light'"
+        (verified)="onTurnstileVerified($event)"
+        (expired)="onTurnstileExpired()"
+      ></app-turnstile>
+
+      <button
+        type="submit"
+        class="btn primary"
+        [disabled]="state() === 'submitting' || !turnstileToken()"
+      >
+        @if (state() === 'submitting') {
+          Sending…
+        } @else {
+          Send Message
+        }
+      </button>
+
+      @if (state() === 'success') {
+        <p class="status success">Thanks! Your message has been sent — I'll get back to you shortly.</p>
+      }
+      @if (state() === 'error') {
+        <p class="status error">{{ errorMessage() }}</p>
+      }
+
+      <p class="protected-by">Protected by Cloudflare Turnstile spam protection.</p>
+    </form>
+
+    <div class="socials">
+      <div class="direct-contact-card glass" appReveal [revealDelay]="60">
+        <h3>Contact Channels</h3>
+        <p class="direct-sub">Available for full-stack engineering roles &amp; technical consultations.</p>
+      </div>
+
+      @for (s of socials; track s.label; let i = $index) {
+        <a class="social-link glass" appReveal [revealDelay]="100 + i * 70" [href]="s.href" target="_blank" rel="noopener">
+          <div class="social-icon" aria-hidden="true">
+            @if (s.icon === 'linkedin') {
+              <span>💼</span>
+            } @else if (s.icon === 'mail') {
+              <span>✉️</span>
+            } @else if (s.icon === 'phone') {
+              <span>📞</span>
+            } @else if (s.icon === 'map-pin') {
+              <span>📍</span>
+            } @else {
+              <span>🔗</span>
+            }
+          </div>
+          <div class="social-info">
+            <span class="social-label">{{ s.label }}</span>
+            <span class="social-detail">{{ s.detail }}</span>
+          </div>
+        </a>
+      }
+    </div>
+  </div>
+</section>

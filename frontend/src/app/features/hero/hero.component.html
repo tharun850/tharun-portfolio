@@ -1,0 +1,53 @@
+<section id="home" class="hero">
+  <!-- background parallax layers: each moves at a different speed/direction -->
+  <div class="orb orb-1" [appParallax]="-0.15" [maxOffset]="80"></div>
+  <div class="orb orb-2" [appParallax]="0.25" [maxOffset]="100"></div>
+  <div class="orb orb-3" [appParallax]="-0.35" [maxOffset]="60"></div>
+
+  <div class="hero-content" appReveal [appParallax]="0.05" [maxOffset]="30">
+    <div class="badge-pill">
+      <span class="dot"></span>
+      <span>Oracle Certified Associate &middot; Java SE 8</span>
+    </div>
+
+    <p class="eyebrow">Full-Stack Engineer</p>
+    <h1>Tharun Kumar Doddi</h1>
+    <h2>Java &middot; Spring Boot &middot; Angular &middot; Microservices &middot; Kafka</h2>
+
+    <p class="lead">
+      Results-driven Full-Stack Engineer with <strong>4+ years of experience</strong> delivering scalable enterprise
+      applications across <strong>banking (Citi Bank)</strong> and <strong>healthcare (ComPsych)</strong> domains.
+      Expertise in event-driven architecture, distributed caching with Apache Ignite, and high-performance Angular apps.
+    </p>
+
+    <!-- Key Metrics / Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card glass">
+        <span class="stat-value">4+</span>
+        <span class="stat-label">Years Experience</span>
+      </div>
+      <div class="stat-card glass">
+        <span class="stat-value">70%</span>
+        <span class="stat-label">Latency Reduced</span>
+      </div>
+      <div class="stat-card glass">
+        <span class="stat-value">200%</span>
+        <span class="stat-label">Traffic Scaled</span>
+      </div>
+      <div class="stat-card glass">
+        <span class="stat-value">0</span>
+        <span class="stat-label">Migration Downtime</span>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a class="btn primary" href="#experience">View Experience</a>
+      <a class="btn ghost" href="#skills">Explore Tech Stack</a>
+      <a class="btn outline" href="#contact">Get in Touch</a>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span></span>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+<section id="terminal" class="section">
+  <h2 class="section-title" appReveal>Interactive Shell</h2>
+  <p class="section-subtitle" appReveal [revealDelay]="60">
+    Prefer a command line? Query my experience, tech stack, and metrics directly via terminal commands.
+  </p>
+
+  <!-- Quick Command Chips -->
+  <div class="terminal-chips" appReveal [revealDelay]="80">
+    <span class="chip-label">Quick Commands:</span>
+    @for (cmd of quickCommands; track cmd) {
+      <button type="button" class="quick-chip" (click)="runCommand(cmd)">
+        {{ cmd }}
+      </button>
+    }
+  </div>
+
+  <div class="terminal-window glass" appReveal [revealDelay]="100" (click)="focusInput()">
+    <!-- Terminal Header -->
+    <div class="terminal-header">
+      <div class="terminal-dots" aria-hidden="true">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <span class="terminal-title">tharun@portfolio: ~ (bash)</span>
+      <span class="terminal-status">online</span>
+    </div>
+
+    <!-- Terminal Body -->
+    <div #terminalBody class="terminal-body">
+      @for (line of history(); track $index) {
+        <div class="terminal-line" [ngClass]="line.type">
+          @if (line.type === 'input') {
+            <span class="prompt-arrow">❯</span>
+          }
+          <span class="line-text">{{ line.text }}</span>
+        </div>
+      }
+
+      <!-- Active Input Line -->
+      <form class="input-line" (ngSubmit)="runCommand(currentCommand)">
+        <span class="prompt-arrow">❯</span>
+        <span class="prompt-path">tharun@portfolio:~$</span>
+        <input
+          #terminalInput
+          type="text"
+          class="terminal-input"
+          [(ngModel)]="currentCommand"
+          name="command"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder="Type a command (e.g. skills, stats, help)..."
+        />
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,72 @@
+<section id="experience" class="section">
+  <h2 class="section-title" appReveal>Professional Experience</h2>
+  <p class="section-subtitle" appReveal [revealDelay]="60">
+    4+ years delivering scalable enterprise applications across banking and healthcare domains.
+  </p>
+
+  <div class="timeline">
+    @for (e of entries(); track e.id; let i = $index) {
+      <div class="entry glass" appReveal [revealDelay]="120 + i * 100" [appParallax]="0.05" [maxOffset]="20">
+        <div class="entry-header">
+          <div>
+            <h3>{{ e.role }}</h3>
+            <div class="org-meta">
+              <span class="org">{{ e.org }}</span>
+              @if (e.client) {
+                <span class="client-badge">Client: {{ e.client }}</span>
+              }
+            </div>
+          </div>
+          <div class="entry-meta-right">
+            <span class="period">{{ e.period }}</span>
+            @if (e.location) {
+              <span class="location">{{ e.location }}</span>
+            }
+          </div>
+        </div>
+
+        <ul class="bullets">
+          @for (bullet of e.bullets; track bullet) {
+            <li>{{ bullet }}</li>
+          }
+        </ul>
+
+        @if (e.tags && e.tags.length) {
+          <div class="entry-tags">
+            @for (tag of e.tags; track tag) {
+              <span class="tag-chip">{{ tag }}</span>
+            }
+          </div>
+        }
+      </div>
+    }
+  </div>
+
+  <!-- Education & Certifications Subsection -->
+  <div class="edu-cert-section" appReveal [revealDelay]="100">
+    <h3 class="subsection-title">Education &amp; Certifications</h3>
+    <div class="edu-cert-grid">
+      @for (item of educationAndCerts(); track item.id; let i = $index) {
+        <div class="edu-card glass" appReveal [revealDelay]="140 + i * 80">
+          <div class="edu-card-icon" aria-hidden="true">
+            @if (item.type === 'certification') {
+              <span>🏆</span>
+            } @else {
+              <span>🎓</span>
+            }
+          </div>
+          <div class="edu-card-content">
+            <h4>{{ item.title }}</h4>
+            <p class="institution">{{ item.institution }}</p>
+            <div class="edu-footer">
+              <span class="edu-period">{{ item.periodOrDate }}</span>
+              @if (item.scoreOrDetail) {
+                <span class="edu-score">{{ item.scoreOrDetail }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

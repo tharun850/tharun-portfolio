@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<main>
+  <app-hero></app-hero>
+
+  <section id="skills" class="section">
+    <h2 class="section-title" appReveal>Technical Skills &amp; Stack</h2>
+    <p class="section-subtitle" appReveal [revealDelay]="80">
+      An interactive physics sandbox of core competencies, plus categorized enterprise proficiencies.
+    </p>
+
+    <div appReveal [revealDelay]="140">
+      <app-skills-bubbles [skills]="skills()"></app-skills-bubbles>
+    </div>
+
+    <!-- Categorized Skill Grid -->
+    <div class="skills-categories-grid">
+      @for (cat of skillCategories(); track cat.title; let i = $index) {
+        <div class="category-card glass" appReveal [revealDelay]="160 + i * 80">
+          <h3 class="category-title">{{ cat.title }}</h3>
+          <div class="chips-wrap">
+            @for (skill of cat.skills; track skill) {
+              <span class="skill-chip">{{ skill }}</span>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <app-experience></app-experience>
+  <app-projects></app-projects>
+  <app-terminal></app-terminal>
+  <app-resume></app-resume>
+  <app-contact></app-contact>
+</main>
+
+<app-footer></app-footer>
