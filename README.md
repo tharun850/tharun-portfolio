@@ -1,5 +1,7 @@
 # Tharun Kumar Doddi — Full-Stack Portfolio Application
 
+Live Page: https://tharun-portfolio-rho.vercel.app/
+
 A modern, high-performance single-page portfolio engineered with **Angular 22** (Zoneless + Signals), **Vercel Serverless Functions / Express.js**, **Resend Email Service**, and **Cloudflare Turnstile** spam protection.
 
 ---
