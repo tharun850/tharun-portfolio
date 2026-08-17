@@ -120,7 +120,7 @@ const PROJECTS: Project[] = [
     title: 'NaukriBot & Career Automation Engine',
     category: 'personal',
     clientOrContext: 'Open Source Project',
-    badge: 'Automation & Scraping',
+    badge: 'Live Platform & Code',
     description:
       'Multi-account job search and recruitment automation bot featuring automated scheduled runs, auto-application pipelines, profile headline rotation, dynamic resume uploads, and an SSE live status dashboard.',
     highlights: [
@@ -129,6 +129,7 @@ const PROJECTS: Project[] = [
       'Live SSE Dashboard: Real-time execution telemetry and streaming log output to the web interface.',
     ],
     tags: ['Java', 'Spring Boot', 'Automation', 'Web Scraping', 'SSE Streaming', 'Scheduling'],
+    liveUrl: 'https://inot.qzz.io/naukri-bot/',
     repoUrl: 'https://github.com/tharun850/naukribot',
   },
   {
@@ -136,7 +137,7 @@ const PROJECTS: Project[] = [
     title: '3D Torch — Interactive Angular Lighting Simulation',
     category: 'personal',
     clientOrContext: 'Open Source UI',
-    badge: 'Interactive UI & Canvas',
+    badge: 'Live Demo & Code',
     description:
       'An interactive Angular 3D lighting application that tracks cursor movement to dynamically project a volumetric 3D light cone and perspective specular highlights onto typography and surfaces.',
     highlights: [
@@ -144,6 +145,7 @@ const PROJECTS: Project[] = [
       'Reactive Math: Smooth GPU-accelerated CSS 3D transforms, perspective math, and dynamic specular shading.',
     ],
     tags: ['Angular', 'TypeScript', 'SCSS', '3D Transforms', 'CSS Physics', 'Interactive UI'],
+    liveUrl: 'https://threedtorch.onrender.com/',
     repoUrl: 'https://github.com/tharun850/3dTorch',
   },
   {
@@ -151,7 +153,7 @@ const PROJECTS: Project[] = [
     title: 'PDF Questions & Examination Generator',
     category: 'personal',
     clientOrContext: 'Open Source Project',
-    badge: 'Document Processing & AI',
+    badge: 'Live Web App & Code',
     description:
       'Automated document parser and assessment engine that extracts text and structure from PDF textbooks and lecture notes to generate interactive quizzes, multiple-choice exams, and automated grading.',
     highlights: [
@@ -159,7 +161,8 @@ const PROJECTS: Project[] = [
       'Assessment Generation: Automatically formats categorized questions with instant grading and review.',
     ],
     tags: ['TypeScript', 'Angular', 'PDF Processing', 'Question Generator', 'EdTech'],
-    repoUrl: 'https://github.com/tharun850/QuestionsGenerator',
+    liveUrl: 'https://tharun850.github.io/PDFQuestionsToExam/',
+    repoUrl: 'https://github.com/tharun850/PDFQuestionsToExam',
   },
 ];
 
