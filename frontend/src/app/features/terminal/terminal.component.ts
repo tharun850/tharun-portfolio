@@ -83,12 +83,14 @@ export class TerminalComponent {
 
       case 'projects':
         this.addOutput([
-          'KEY PROJECTS & SYSTEMS:',
+          'KEY ENTERPRISE & OPEN-SOURCE PROJECTS:',
           '  • Automated Collateralized Lending Engine (Kafka, Spring Boot, Microservices, Bloomberg)',
-          '  • Healthcare Patient & Provider Intake Portal (Live Angular Signals + Spring Boot)',
+          '  • Enterprise Healthcare Patient & Provider Intake Portal (Angular Signals + Spring Boot)',
           '  • Distributed Healthcare Benefits & Caching Pipeline (Apache Ignite, SOAP-to-REST)',
-          '  • Real-Time Financial Analytics Dashboard (WebSockets, Angular, D3.js)',
-          '  • Dynamic Reflection ORM & Validation Engine (Java 21 Open Source)',
+          '  • LLaMA Pi Control Center (Java 21, Angular, Local LLMs, SSE Streaming)',
+          '  • NaukriBot & Career Automation Engine (Java, Spring Boot, Web Scraping, SSE)',
+          '  • 3D Torch — Interactive Angular Lighting Simulation (TypeScript, SCSS, 3D Transforms)',
+          '  • PDF Questions & Examination Generator (TypeScript, Angular, PDF Processing)',
         ]);
         break;
 

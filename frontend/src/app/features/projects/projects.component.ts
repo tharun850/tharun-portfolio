@@ -5,6 +5,7 @@ import { RevealDirective } from '../../core/directives/reveal.directive';
 import { Project } from '../../core/models/skill.model';
 
 const PROJECTS: Project[] = [
+  // --- ENTERPRISE SYSTEMS ---
   {
     id: 'banking-collateral-lending',
     title: 'Automated Collateralized Lending & Margin Financing Engine',
@@ -79,54 +80,86 @@ const PROJECTS: Project[] = [
       'JBoss EAP 8',
     ],
   },
-  {
-    id: 'personal-analytics',
-    title: 'Real-Time Event-Driven Financial Analytics Dashboard',
-    category: 'personal',
-    clientOrContext: 'Personal Project',
-    badge: 'Live Demo & Open Source',
-    description:
-      'Full-stack reactive financial dashboard streaming live stock quotes, portfolio valuations, and margin metrics via WebSockets with smooth D3 animated chart transitions.',
-    highlights: [
-      'Frontend: Built with Angular Signals, RxJS WebSocket streams, and D3.js interactive charts.',
-      'Backend: Spring Boot WebSocket broker with scheduled mock ticker streams and in-memory order matching.',
-    ],
-    tags: ['Angular', 'Angular Signals', 'Spring Boot', 'WebSockets', 'D3.js', 'RxJS'],
-    liveUrl: 'https://github.com/tonitharun',
-    repoUrl: 'https://github.com/tonitharun',
-  },
-  {
-    id: 'personal-orm',
-    title: 'Dynamic Reflection ORM & Validation Framework',
-    category: 'personal',
-    clientOrContext: 'Open Source',
-    badge: 'GitHub Open Source',
-    description:
-      'A lightweight, annotation-driven Java ORM and declarative validation engine built entirely using the Java Reflection API to eliminate boilerplate SQL and enforce cross-entity data integrity.',
-    highlights: [
-      'Dynamic Mapping: Automatically maps POJOs to relational tables using custom annotations.',
-      'Cross-Entity Validation: Implements reusable runtime constraint validators adopted across multi-module projects.',
-    ],
-    tags: ['Java 21', 'Java Reflection API', 'Spring Data JPA', 'Design Patterns', 'JUnit 5'],
-    liveUrl: 'https://github.com/tonitharun',
-    repoUrl: 'https://github.com/tonitharun',
-  },
+
+  // --- PERSONAL & OPEN SOURCE PROJECTS ---
   {
     id: 'personal-portfolio',
     title: 'Zoneless Angular 22 Signal-Physics Portfolio',
     category: 'personal',
     clientOrContext: 'Personal Portfolio',
-    badge: 'Live Project',
+    badge: 'Live & Open Source',
     description:
-      'Modern, high-performance single-page portfolio engineered with zoneless Angular 22 change detection, custom rAF collision physics for skill bubbles, and Cloudflare Turnstile protected email backend.',
+      'High-performance single-page portfolio engineered with zoneless Angular 22 signals, custom rAF elastic collision physics for skill bubbles, and a Cloudflare Turnstile protected serverless contact API.',
     highlights: [
-      'Zoneless Performance: 100% signals reactivity with zero zone.js overhead.',
+      'Zoneless Reactivity: 100% signals architecture eliminating zone.js runtime overhead.',
       'Custom Physics: 60fps delta-time normalized elastic bubble collisions and cursor-following parallax.',
-      'Secure Contact: Cloudflare Turnstile token validation and Resend transactional email backend.',
+      'Serverless Contact: Cloudflare Turnstile captcha token validation and Resend transactional email backend on Vercel.',
     ],
-    tags: ['Angular 22', 'Signals', 'TypeScript', 'SCSS', 'Cloudflare Turnstile', 'Resend'],
-    liveUrl: 'https://github.com/tonitharun',
-    repoUrl: 'https://github.com/tonitharun',
+    tags: ['Angular 22', 'Signals', 'TypeScript', 'SCSS', 'Vercel Serverless', 'Cloudflare Turnstile', 'Resend'],
+    liveUrl: 'https://tharun-portfolio-rho.vercel.app',
+    repoUrl: 'https://github.com/tharun850/tharun-portfolio',
+  },
+  {
+    id: 'personal-llama-pi',
+    title: 'LLaMA Pi Control Center',
+    category: 'personal',
+    clientOrContext: 'Open Source Project',
+    badge: 'AI & LLM Orchestrator',
+    description:
+      'Zero-dependency Java 21 & Angular 21 web orchestrator for hosting local LLMs (llama-server), streaming real-time Server-Sent Events (SSE) logs, and managing Pi Coding Agent workspaces.',
+    highlights: [
+      'Local LLM Hosting: Orchestrates local inference models via llama-server with zero external runtime dependencies.',
+      'Real-Time SSE Streaming: Streams token-by-token generation logs and server metrics directly to the Angular UI.',
+      'Agent Workspace Management: Manages autonomous coding agent work environments and session state.',
+    ],
+    tags: ['Java 21', 'Angular', 'LLM Orchestration', 'llama-server', 'SSE Streaming', 'AI Agents'],
+    repoUrl: 'https://github.com/tharun850/llama-pi-control-center',
+  },
+  {
+    id: 'personal-naukribot',
+    title: 'NaukriBot & Career Automation Engine',
+    category: 'personal',
+    clientOrContext: 'Open Source Project',
+    badge: 'Automation & Scraping',
+    description:
+      'Multi-account job search and recruitment automation bot featuring automated scheduled runs, auto-application pipelines, profile headline rotation, dynamic resume uploads, and an SSE live status dashboard.',
+    highlights: [
+      'Multi-Account Automation: Orchestrates multi-profile lifecycle automation with anti-detection throttling.',
+      'Auto-Apply & Profile Refresh: Automated resume syncing and dynamic headline rotations to optimize recruiter visibility.',
+      'Live SSE Dashboard: Real-time execution telemetry and streaming log output to the web interface.',
+    ],
+    tags: ['Java', 'Spring Boot', 'Automation', 'Web Scraping', 'SSE Streaming', 'Scheduling'],
+    repoUrl: 'https://github.com/tharun850/naukribot',
+  },
+  {
+    id: 'personal-3dtorch',
+    title: '3D Torch — Interactive Angular Lighting Simulation',
+    category: 'personal',
+    clientOrContext: 'Open Source UI',
+    badge: 'Interactive UI & Canvas',
+    description:
+      'An interactive Angular 3D lighting application that tracks cursor movement to dynamically project a volumetric 3D light cone and perspective specular highlights onto typography and surfaces.',
+    highlights: [
+      'Dynamic Lighting: Cursor-following 3D cone-of-light projection with ray-cast surface illumination.',
+      'Reactive Math: Smooth GPU-accelerated CSS 3D transforms, perspective math, and dynamic specular shading.',
+    ],
+    tags: ['Angular', 'TypeScript', 'SCSS', '3D Transforms', 'CSS Physics', 'Interactive UI'],
+    repoUrl: 'https://github.com/tharun850/3dTorch',
+  },
+  {
+    id: 'personal-questions-generator',
+    title: 'PDF Questions & Examination Generator',
+    category: 'personal',
+    clientOrContext: 'Open Source Project',
+    badge: 'Document Processing & AI',
+    description:
+      'Automated document parser and assessment engine that extracts text and structure from PDF textbooks and lecture notes to generate interactive quizzes, multiple-choice exams, and automated grading.',
+    highlights: [
+      'Document Parsing: Extracts structured knowledge chapters and key concepts from unstructured PDF documents.',
+      'Assessment Generation: Automatically formats categorized questions with instant grading and review.',
+    ],
+    tags: ['TypeScript', 'Angular', 'PDF Processing', 'Question Generator', 'EdTech'],
+    repoUrl: 'https://github.com/tharun850/QuestionsGenerator',
   },
 ];
 
@@ -140,6 +173,13 @@ const PROJECTS: Project[] = [
 export class ProjectsComponent {
   activeTab = signal<'all' | 'enterprise' | 'personal'>('all');
   allProjects = signal<Project[]>(PROJECTS);
+
+  enterpriseCount = computed(
+    () => this.allProjects().filter((p) => p.category === 'enterprise').length
+  );
+  personalCount = computed(
+    () => this.allProjects().filter((p) => p.category === 'personal').length
+  );
 
   filteredProjects = computed(() => {
     const tab = this.activeTab();

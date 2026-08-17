@@ -20,7 +20,7 @@
       [class.active]="activeTab() === 'enterprise'"
       (click)="setTab('enterprise')"
     >
-      🏛️ Enterprise &amp; Client Systems (3)
+      🏛️ Enterprise &amp; Client Systems ({{ enterpriseCount() }})
     </button>
     <button
       type="button"
@@ -28,7 +28,7 @@
       [class.active]="activeTab() === 'personal'"
       (click)="setTab('personal')"
     >
-      💻 Personal &amp; Open Source (3)
+      💻 Personal &amp; Open Source ({{ personalCount() }})
     </button>
   </div>
 
