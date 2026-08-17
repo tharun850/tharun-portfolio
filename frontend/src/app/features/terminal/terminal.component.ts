@@ -89,6 +89,7 @@ export class TerminalComponent {
           '  • Distributed Healthcare Benefits & Caching Pipeline (Apache Ignite, SOAP-to-REST)',
           '  • LLaMA Pi Control Center (Java 21, Angular, Local LLMs, SSE Streaming)',
           '  • NaukriBot & Career Automation Engine (Java, Spring Boot, Web Scraping, SSE)',
+          '  • AI Resume Skill Matcher & Vector ATS Builder (Angular, OpenAI Vision, Local LLMs)',
           '  • 3D Torch — Interactive Angular Lighting Simulation (TypeScript, SCSS, 3D Transforms)',
           '  • PDF Questions & Examination Generator (TypeScript, Angular, PDF Processing)',
         ]);

@@ -164,6 +164,31 @@ const PROJECTS: Project[] = [
     liveUrl: 'https://tharun850.github.io/PDFQuestionsToExam/',
     repoUrl: 'https://github.com/tharun850/PDFQuestionsToExam',
   },
+  {
+    id: 'personal-resume-skill-builder',
+    title: 'AI Resume Skill Matcher & Vector ATS Builder',
+    category: 'personal',
+    clientOrContext: 'Open Source AI Tool',
+    badge: 'Live AI App & Code',
+    description:
+      'Client-side privacy-first Angular web application that extracts missing skills from job portal screenshots using Multimodal AI Vision models and generates instant ATS-optimized single-page vector PDF resumes.',
+    highlights: [
+      'Multimodal Vision Extraction: Extracts only missing and unmatched skill tags from job portal screenshots (LinkedIn / Naukri).',
+      'Local & Cloud AI Flexibility: Connects with local offline models (LM Studio / Ollama Qwen2-VL) or OpenAI-compatible cloud APIs.',
+      'Single-Page Vector PDF: Generates clean, ATS-compliant PDF resumes with 100% client-side privacy (no data leaves the browser).',
+    ],
+    tags: [
+      'Angular',
+      'TypeScript',
+      'OpenAI Vision',
+      'Local LLMs / Ollama',
+      'ATS Resume',
+      'PDF Generation',
+      'SCSS',
+    ],
+    liveUrl: 'https://tharun850.github.io/resume-skill-builder/',
+    repoUrl: 'https://github.com/tharun850/resume-skill-builder',
+  },
 ];
 
 @Component({
